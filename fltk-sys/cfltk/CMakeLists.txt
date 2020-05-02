@@ -53,6 +53,10 @@ else()
     target_include_directories(cfltk PUBLIC fltk ${CMAKE_CURRENT_BINARY_DIR}/fltk)
 endif()
 
+set_target_properties(cfltk PROPERTIES
+LINK_FLAGS /SUBSYSTEM:WINDOWS
+)
+
 if(CFLTK_BUILD_SHARED OR USE_SYSTEM_FLTK)
     target_link_libraries(cfltk PUBLIC fltk fltk_images fltk_z fltk_jpeg fltk_png)
 endif()
